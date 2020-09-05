@@ -23,5 +23,5 @@ spec:
         - ReadWriteOnce
         resources:
           requests:
-            storage: 100Gi
-        storageClassName: local
+            storage: 16Gi
+        storageClassName: vsan-default
