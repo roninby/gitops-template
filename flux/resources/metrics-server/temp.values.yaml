@@ -1,0 +1,4 @@
+args:
+  - --kubelet-preferred-address-types=InternalIP,ExternalIP
+  - --kubelet-insecure-tls
+
