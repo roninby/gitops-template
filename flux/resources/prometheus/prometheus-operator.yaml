@@ -5,11 +5,33 @@ metadata:
   name: prometheus-operator
   namespace: monitoring
 spec:
+  helmVersion: v3
+  releaseName: prometheus-operator
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     version: 9.3.1
   values:
-    ## Deploy a Prometheus instance
+    defaultRules:
+      create: true
+      rules:
+        alertmanager: true
+        etcd: false
+        general: true
+        k8s: true
+        kubeApiserver: true
+        kubePrometheusNodeAlerting: true
+        kubePrometheusNodeRecording: true
+        kubeScheduler: true
+        kubernetesAbsent: true
+        kubernetesApps: true
+        kubernetesResources: true
+        kubernetesStorage: true
+        kubernetesSystem: true
+        node: true
+        prometheusOperator: true
+        prometheus: true
+ 
+ ## Deploy a Prometheus instance
     ##
     prometheus:
 
@@ -221,6 +243,9 @@ spec:
         logLevel: debug
 
     grafana:
+      enabled: true
+      adminPassword: grafana
+      
       ingress:
         enabled: true
 
