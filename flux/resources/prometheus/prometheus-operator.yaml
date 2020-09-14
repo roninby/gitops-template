@@ -16,7 +16,7 @@ spec:
       create: true
       rules:
         alertmanager: true
-        etcd: false
+        etcd: true
         general: true
         k8s: true
         kubeApiserver: true
@@ -42,8 +42,8 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/hostname: prometheus.internal.managedkube.com
           kubernetes.io/ingress.class: nginx-ingress
-          certmanager.k8s.io/cluster-issuer: prod
-          certmanager.k8s.io/acme-http01-edit-in-place: "true"
+          #certmanager.k8s.io/cluster-issuer: prod
+          #certmanager.k8s.io/acme-http01-edit-in-place: "true"
 
         hosts:
           - prometheus.internal.managedkube.com
