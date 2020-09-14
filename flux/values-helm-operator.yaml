@@ -10,3 +10,11 @@ configureRepositories:
       url: https://kubernetes-charts.storage.googleapis.com
     - name: incubator
       url: https://kubernetes-charts-incubator.storage.googleapis.com
+
+extraEnvs:
+  - name: "HTTP_PROXY"
+    value: "http://172.31.2.111:8889"
+  - name: "HTTPS_PROXY"
+    value: "http://172.31.2.111:8889"
+  - name: "NO_PROXY"
+    value: "127.0.0.0/8\,10.0.0.0/8\,172.16.0.0/12\,192.168.0.0/16"   
