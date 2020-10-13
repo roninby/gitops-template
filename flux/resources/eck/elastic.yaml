@@ -24,4 +24,4 @@ spec:
         resources:
           requests:
             storage: 16Gi
-        ##storageClassName: vsan-default
+        #storageClassName: vsan-default
