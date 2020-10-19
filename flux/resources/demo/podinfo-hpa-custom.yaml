@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: podinfo2
+  name: podinfo-custom
   namespace: demo
 spec:
   scaleTargetRef:
@@ -13,8 +13,8 @@ spec:
   metrics:
   - type: Pods
     pods:
-        metric:
-          name: http_requests
-        target:
-          type: AverageValue
-          averageValue: 10
+      metric:
+        name: http_requests
+      target:
+        type: AverageValue
+        averageValue: 10
