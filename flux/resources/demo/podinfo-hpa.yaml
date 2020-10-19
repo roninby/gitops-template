@@ -1,7 +1,7 @@
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: podinfo
+  name: podinfo1
   namespace: demo
 spec:
   scaleTargetRef:
@@ -14,9 +14,15 @@ spec:
   - type: Resource
     resource:
       name: cpu
-      # scale up if usage is above
-      # 99% of the requested CPU (10m)
-      targetAverageUtilization: 99
+        target:
+          type: Utilization
+          averageUtilization: 80
+  - type: Resource
+    resource:
+      name: memory
+        target:
+          type: AverageValue
+          averageValue: 200Mi
 
 ---
 apiVersion: autoscaling/v2beta2
